@@ -1,11 +1,13 @@
 import discord
 from discord.ext import commands
-import dotenv
+from dotenv import load_dotenv
 import os
 import music
 from asyncio import sleep
 # from asyncio import sleep
 
+load_dotenv()
+# environment variabel
 
 token = os.getenv("BOT_TOKEN")
 cogs = [music]
@@ -15,6 +17,5 @@ bot = commands.Bot(command_prefix='!',activity=activity, status=discord.Status.i
 for i in cogs:
     i.setup(bot)
 
-
 #untuk running bot
-bot.run(token)
+bot.run(str(token))
